@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-int isEven(int);
-int isOdd(int);
+int is_even(int num);
+int is_odd(int num);
 int square(int);
 int cube(int);
 
-int isEven(int num)
+int is_even(int num)
 {
   return (num % 2) == 0;
   // return !(num & 1);
 }
 
-int isOdd(int num)
+int is_odd(int num)
 {
-  return !isEven(num);
+  return !is_even(num);
 }
 
 int square(int num)
@@ -31,8 +31,8 @@ int main(void)
   int num;
   printf("Enter a number\n");
   scanf("%d", &num);
-  isEven(num) ? printf("%d is even\n", num) : printf("%d is not even\n", num);
-  isOdd(num) ? printf("%d is odd\n", num) : printf("%d is not odd\n", num);
+  printf("%d is %s\n", num, is_even(num) ? "even" : "not even");
+  printf("%d is %s\n", num, is_odd(num) ? "odd" : "not odd");
   printf("square of %d is %d\n", num, square(num));
   printf("cube of %d is %d\n", num, cube(num));
   return 0;
