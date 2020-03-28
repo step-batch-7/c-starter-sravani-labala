@@ -3,6 +3,7 @@
 int factorial(int num);
 int fibonacci(int upto);
 int odd_number_series(int upto);
+int even_number_series(int upto);
 
 // calculating upto 12 numbers
 int factorial(int num)
@@ -36,6 +37,18 @@ int odd_number_series(int upto)
   return 0;
 }
 
+int even_number_series(int upto)
+{
+  int num = 1;
+  while (upto)
+  {
+    (num % 2 == 0) && printf("%d ", num);
+    num++;
+    upto--;
+  }
+  return 0;
+}
+
 int main(void)
 {
   int num1;
@@ -47,6 +60,8 @@ int main(void)
   fibonacci(num1);
   printf("\nThe odd number series upto %d is as follows\n", num1);
   odd_number_series(num1);
+  printf("\nThe even number series upto %d is as follows\n", num1);
+  even_number_series(num1);
 
   return 0;
 }
