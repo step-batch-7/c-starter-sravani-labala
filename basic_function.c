@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int is_even(int num);
 int is_odd(int num);
@@ -8,7 +9,8 @@ float convert_fahrenheit_to_centigrade(float fahrenheit);
 float convert_centigrade_to_fahrenheit(float centigrade);
 int greatest_of_three(int num1, int num2, int num3);
 float average_of_three(int num1, int num2, int num3);
-float simple_interest(long int sum, int time, float rate);
+float simple_interest(long int principle, int time, float rate);
+float compound_interest(long int principle, int time, float rate);
 
 int is_even(int num)
 {
@@ -62,6 +64,11 @@ float simple_interest(long int principle, int time, float rate)
   return (principle * time * rate) / 100;
 }
 
+float compound_interest(long int principle, int time, float rate)
+{
+  return principle * (pow((1 + rate / 100), time));
+}
+
 int main(void)
 {
   int num, number1, number2, number3, time;
@@ -88,6 +95,7 @@ int main(void)
   printf("Enter principle, time and rate of interest to calculate simple interest\n");
   scanf("%ld %d %f", &principle, &time, &rate);
   printf("simple interest of principle %ld with rate of interest %f within time %d is %f\n", principle, rate, time, simple_interest(principle, time, rate));
+  printf("compound interest of principle %ld with rate of interest %f within time %d is %f\n", principle, rate, time, compound_interest(principle, time, rate));
 
   return 0;
 }
