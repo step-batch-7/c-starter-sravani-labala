@@ -12,6 +12,7 @@ float average_of_three(int num1, int num2, int num3);
 float simple_interest(long int principle, int time, float rate);
 float compound_interest(long int principle, int time, float rate);
 int gcd(int num1, int num2);
+int lcm(int num1, int num2);
 
 int is_even(int num)
 {
@@ -80,6 +81,11 @@ int gcd(int num1, int num2)
   // return num2 == 0 ? num1 : gcd(num2, num1 % num2);
 }
 
+int lcm(int num1, int num2)
+{
+  return (num1 * num2) / gcd(num1, num2);
+}
+
 int main(void)
 {
   int number1, number2, number3, time;
@@ -108,9 +114,10 @@ int main(void)
   printf("simple interest of principle %ld with rate of interest %f within time %d is %f\n", principle, rate, time, simple_interest(principle, time, rate));
   printf("compound interest of principle %ld with rate of interest %f within time %d is %f\n", principle, rate, time, compound_interest(principle, time, rate));
 
-  printf("Enter numbers to find gcd\n");
+  printf("Enter numbers to find gcd and lcm\n");
   scanf("%d %d", &number1, &number2);
   printf("gcd of %d and %d is %d\n", number1, number2, gcd(number1, number2));
+  printf("lcm of %d and %d is %d\n", number1, number2, lcm(number1, number2));
 
   return 0;
 }
