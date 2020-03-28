@@ -6,6 +6,7 @@ int square(int num);
 int cube(int num);
 float convert_fahrenheit_to_centigrade(float fahrenheit);
 float convert_centigrade_to_fahrenheit(float centigrade);
+int greatest_of_three(int num1, int num2, int num3);
 
 int is_even(int num)
 {
@@ -38,10 +39,21 @@ float convert_centigrade_to_fahrenheit(float centigrade)
   return ((centigrade * 9) / 5) + 32;
 }
 
+int greatest_of_three(int num1, int num2, int num3)
+{
+  if (num1 > num2)
+  {
+    return num1 > num3 ? num1 : num3;
+  }
+  return num2 > num3 ? num2 : num3;
+  // return (num1 > num2) ? (num1 > num3 ? num1 : num3) : (num2 > num3 ? num2 : num3);
+}
+
 int main(void)
 {
   int num;
   float temperature;
+  int number1, number2, number3;
   printf("Enter a number\n");
   scanf("%d", &num);
   printf("%d is %s\n", num, is_even(num) ? "even" : "not even");
@@ -52,5 +64,8 @@ int main(void)
   scanf("%f", &temperature);
   printf("%f fahrenheit converted to centigrade is %f\n", temperature, convert_fahrenheit_to_centigrade(temperature));
   printf("%f centigrade converted to fahrenheit is %f\n", temperature, convert_centigrade_to_fahrenheit(temperature));
+  printf("Enter three numbers for finding the greatest with spaces\n");
+  scanf("%d %d %d", &number1, &number2, &number3);
+  printf("The gretest among %d, %d, %d is %d", number1, number2, number3, greatest_of_three(number1, number2, number3));
   return 0;
 }
