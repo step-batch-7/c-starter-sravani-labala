@@ -11,6 +11,7 @@ int greatest_of_three(int num1, int num2, int num3);
 float average_of_three(int num1, int num2, int num3);
 float simple_interest(long int principle, int time, float rate);
 float compound_interest(long int principle, int time, float rate);
+int gcd(int num1, int num2);
 
 int is_even(int num)
 {
@@ -69,18 +70,28 @@ float compound_interest(long int principle, int time, float rate)
   return principle * (pow((1 + rate / 100), time));
 }
 
+int gcd(int num1, int num2)
+{
+  if (num2 == 0)
+  {
+    return num1;
+  }
+  return gcd(num2, num1 % num2);
+  // return num2 == 0 ? num1 : gcd(num2, num1 % num2);
+}
+
 int main(void)
 {
-  int num, number1, number2, number3, time;
+  int number1, number2, number3, time;
   float temperature, rate;
   long int principle;
 
   printf("Enter a number\n");
-  scanf("%d", &num);
-  printf("%d is %s\n", num, is_even(num) ? "even" : "not even");
-  printf("%d is %s\n", num, is_odd(num) ? "odd" : "not odd");
-  printf("square of %d is %ld\n", num, square(num));
-  printf("cube of %d is %ld\n", num, cube(num));
+  scanf("%d", &number1);
+  printf("%d is %s\n", number1, is_even(number1) ? "even" : "not even");
+  printf("%d is %s\n", number1, is_odd(number1) ? "odd" : "not odd");
+  printf("square of %d is %ld\n", number1, square(number1));
+  printf("cube of %d is %ld\n", number1, cube(number1));
 
   printf("Enter the temperature\n");
   scanf("%f", &temperature);
@@ -96,6 +107,10 @@ int main(void)
   scanf("%ld %d %f", &principle, &time, &rate);
   printf("simple interest of principle %ld with rate of interest %f within time %d is %f\n", principle, rate, time, simple_interest(principle, time, rate));
   printf("compound interest of principle %ld with rate of interest %f within time %d is %f\n", principle, rate, time, compound_interest(principle, time, rate));
+
+  printf("Enter numbers to find gcd\n");
+  scanf("%d %d", &number1, &number2);
+  printf("gcd of %d and %d is %d\n", number1, number2, gcd(number1, number2));
 
   return 0;
 }
