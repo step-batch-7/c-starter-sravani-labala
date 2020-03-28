@@ -7,6 +7,7 @@ int even_number_series(int upto);
 int sum_of_n_numbers(int start, int end);
 int product_of_n_numbers(int start, int end);
 int sum_of_even_numbers_between_n(int start, int end);
+int odd_numbers_between_n(int start, int end);
 int odd_numbers_in_reverse_order(int from);
 
 // calculating upto 12 numbers
@@ -56,9 +57,9 @@ int even_number_series(int upto)
 int sum_of_n_numbers(int start, int end)
 {
   int sum = 0;
-  for (int i = start; i <= end; i++)
+  for (int num = start; num <= end; num++)
   {
-    sum += i;
+    sum += num;
   }
   return sum;
 }
@@ -66,9 +67,9 @@ int sum_of_n_numbers(int start, int end)
 int product_of_n_numbers(int start, int end)
 {
   int product = 1;
-  for (int i = start; i <= end; i++)
+  for (int num = start; num <= end; num++)
   {
-    product *= i;
+    product *= num;
   }
   return product;
 }
@@ -76,11 +77,11 @@ int product_of_n_numbers(int start, int end)
 int sum_of_even_numbers_between_n(int start, int end)
 {
   int sum = 0;
-  for (int i = start; i <= end; i++)
+  for (int num = start; num <= end; num++)
   {
-    if (i % 2 == 0)
+    if (num % 2 == 0)
     {
-      sum += i;
+      sum += num;
     }
     // (i % 2 == 0) && (sum += i);
   }
@@ -90,6 +91,15 @@ int sum_of_even_numbers_between_n(int start, int end)
 int odd_numbers_in_reverse_order(int from)
 {
   for (int num = from; num > 0; num--)
+  {
+    (num % 2 != 0) && printf("%d ", num);
+  }
+  return 0;
+}
+
+int odd_numbers_between_n(int start, int end)
+{
+  for (int num = start; num <= end; num++)
   {
     (num % 2 != 0) && printf("%d ", num);
   }
@@ -121,11 +131,15 @@ int main(void)
   odd_numbers_in_reverse_order(num1);
   printf("\n");
 
-  printf("Enter two limits to calculate the sum and product between them (ascending order)\n");
+  printf("Enter two numbers (ascending order)\n");
   scanf("%d %d", &num1, &num2);
   printf("The sum between the limits %d and %d is %d\n", num1, num2, sum_of_n_numbers(num1, num2));
   printf("The product between the limits %d and %d is %d\n", num1, num2, product_of_n_numbers(num1, num2));
   printf("The sum of even numbers between %d and %d is %d\n", num1, num2, sum_of_even_numbers_between_n(num1, num2));
+
+  printf("The odd numbers between %d and %d is as follows\n", num1, num2);
+  odd_numbers_between_n(num1, num2);
+  printf("\n");
 
   return 0;
 }
