@@ -5,6 +5,7 @@ int fibonacci(int upto);
 int odd_number_series(int upto);
 int even_number_series(int upto);
 int sum_of_n_numbers(int start, int end);
+int product_of_n_numbers(int start, int end);
 
 // calculating upto 12 numbers
 int factorial(int num)
@@ -60,6 +61,16 @@ int sum_of_n_numbers(int start, int end)
   return sum;
 }
 
+int product_of_n_numbers(int start, int end)
+{
+  int product = 1;
+  for (int i = start; i <= end; i++)
+  {
+    product *= i;
+  }
+  return product;
+}
+
 int main(void)
 {
   int num1, num2;
@@ -81,9 +92,10 @@ int main(void)
   even_number_series(num1);
   printf("\n");
 
-  printf("Enter two limits to calculate the sum (ascending order)\n");
+  printf("Enter two limits to calculate the sum and product between them (ascending order)\n");
   scanf("%d %d", &num1, &num2);
   printf("The sum between the limits %d and %d is %d\n", num1, num2, sum_of_n_numbers(num1, num2));
+  printf("The product between the limits %d and %d is %d\n", num1, num2, product_of_n_numbers(num1, num2));
 
   return 0;
 }
