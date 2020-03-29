@@ -26,13 +26,13 @@ int factorial(int num)
 // can calculate upto 47th fibonacci number considering 0 as 1st number
 int fibonacci(int upto)
 {
-  int previousTerm = 0, currentTerm = 1, temp;
+  int previous_term = 0, current_term = 1, temp;
   while (upto)
   {
-    printf("%d ", previousTerm);
-    temp = previousTerm;
-    previousTerm = currentTerm;
-    currentTerm = temp + previousTerm;
+    printf("%d ", previous_term);
+    temp = previous_term;
+    previous_term = current_term;
+    current_term = temp + previous_term;
     upto--;
   }
   return 0;
