@@ -9,6 +9,7 @@ int product_of_n_numbers(int start, int end);
 int sum_of_even_numbers_between_n(int start, int end);
 int odd_numbers_in_reverse_order(int from);
 int odd_numbers_between_n(int start, int end);
+int nth_number_between_n(int nth, int start, int end);
 
 // calculating upto 12 numbers only
 int factorial(int num)
@@ -153,9 +154,24 @@ int odd_numbers_between_n(int start, int end)
   return 0;
 }
 
+int nth_number_between_n(int nth, int start, int end)
+{
+  if (start > end)
+  {
+    int temp = end;
+    end = start;
+    start = temp;
+  }
+  for (int num = start; num <= end; num += nth)
+  {
+    printf("%d ", num);
+  }
+  return 0;
+}
+
 int main(void)
 {
-  int num1, num2;
+  int num1, num2, num3;
 
   printf("Enter a number\n");
   scanf("%d", &num1);
@@ -178,7 +194,7 @@ int main(void)
   odd_numbers_in_reverse_order(num1);
   printf("\n");
 
-  printf("Enter two numbers (ascending order)\n");
+  printf("Enter two numbers\n");
   scanf("%d %d", &num1, &num2);
   printf("The sum between the limits %d and %d is %d\n", num1, num2, sum_of_n_numbers(num1, num2));
   printf("The product between the limits %d and %d is %d\n", num1, num2, product_of_n_numbers(num1, num2));
@@ -186,6 +202,12 @@ int main(void)
 
   printf("The odd numbers between %d and %d is as follows\n", num1, num2);
   odd_numbers_between_n(num1, num2);
+  printf("\n");
+
+  printf("Enter nth digit and limits to print the nth digit\n");
+  scanf("%d %d %d", &num1, &num2, &num3);
+  printf("The sequence of %d digit between %d and %d is as follows\n", num1, num2, num3);
+  nth_number_between_n(num1, num2, num3);
   printf("\n");
 
   return 0;
