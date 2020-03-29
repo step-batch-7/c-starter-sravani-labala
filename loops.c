@@ -10,6 +10,7 @@ int sum_of_even_numbers_between_n(int start, int end);
 int odd_numbers_in_reverse_order(int from);
 int odd_numbers_between_n(int start, int end);
 int nth_number_between_n(int nth, int start, int end);
+int multiplication(int num, int upto);
 
 // calculating upto 12 numbers only
 int factorial(int num)
@@ -154,6 +155,7 @@ int odd_numbers_between_n(int start, int end)
   return 0;
 }
 
+// if the limits are given in descending order also the sequence prints in ascending format
 int nth_number_between_n(int nth, int start, int end)
 {
   if (start > end)
@@ -165,6 +167,15 @@ int nth_number_between_n(int nth, int start, int end)
   for (int num = start; num <= end; num += nth)
   {
     printf("%d ", num);
+  }
+  return 0;
+}
+
+int multiplication(int num, int upto)
+{
+  for (int i = 1; i <= upto; i++)
+  {
+    printf("%d * %d = %d\n", num, i, num * i);
   }
   return 0;
 }
@@ -209,6 +220,10 @@ int main(void)
   printf("The sequence of %d digit between %d and %d is as follows\n", num1, num2, num3);
   nth_number_between_n(num1, num2, num3);
   printf("\n");
+
+  printf("Enter m and n for multiplication table\n");
+  scanf("%d %d", &num1, &num2);
+  multiplication(num1, num2);
 
   return 0;
 }
