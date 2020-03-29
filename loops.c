@@ -7,15 +7,21 @@ int even_number_series(int upto);
 int sum_of_n_numbers(int start, int end);
 int product_of_n_numbers(int start, int end);
 int sum_of_even_numbers_between_n(int start, int end);
-int odd_numbers_between_n(int start, int end);
 int odd_numbers_in_reverse_order(int from);
+int odd_numbers_between_n(int start, int end);
 
-// calculating upto 12 numbers
+// calculating upto 12 numbers only
 int factorial(int num)
 {
-  return (num == 0) ? 1 : (num * factorial(num - 1));
+  if (num == 0)
+  {
+    return 1;
+  }
+  return num * factorial(num - 1);
+  // return (num == 0) ? 1 : (num * factorial(num - 1));
 }
 
+// can calculate upto 47th fibonacci number considering 0 as 1st number
 int fibonacci(int upto)
 {
   int previousTerm = 0, currentTerm = 1, temp;
@@ -35,7 +41,11 @@ int odd_number_series(int upto)
   int num = 1;
   while (upto)
   {
-    (num % 2 != 0) && printf("%d ", num);
+    if (num % 2)
+    {
+      printf("%d ", num);
+    }
+    // (num % 2) && printf("%d ", num);
     num++;
     upto--;
   }
@@ -47,7 +57,11 @@ int even_number_series(int upto)
   int num = 1;
   while (upto)
   {
-    (num % 2 == 0) && printf("%d ", num);
+    if (num % 2 == 0)
+    {
+      printf("%d ", num);
+    }
+    // (num % 2 == 0) && printf("%d ", num);
     num++;
     upto--;
   }
@@ -57,6 +71,12 @@ int even_number_series(int upto)
 int sum_of_n_numbers(int start, int end)
 {
   int sum = 0;
+  if (start > end)
+  {
+    int temp = end;
+    end = start;
+    start = temp;
+  }
   for (int num = start; num <= end; num++)
   {
     sum += num;
@@ -67,6 +87,12 @@ int sum_of_n_numbers(int start, int end)
 int product_of_n_numbers(int start, int end)
 {
   int product = 1;
+  if (start > end)
+  {
+    int temp = end;
+    end = start;
+    start = temp;
+  }
   for (int num = start; num <= end; num++)
   {
     product *= num;
@@ -77,6 +103,12 @@ int product_of_n_numbers(int start, int end)
 int sum_of_even_numbers_between_n(int start, int end)
 {
   int sum = 0;
+  if (start > end)
+  {
+    int temp = end;
+    end = start;
+    start = temp;
+  }
   for (int num = start; num <= end; num++)
   {
     if (num % 2 == 0)
@@ -92,16 +124,31 @@ int odd_numbers_in_reverse_order(int from)
 {
   for (int num = from; num > 0; num--)
   {
-    (num % 2 != 0) && printf("%d ", num);
+    if (num % 2)
+    {
+      printf("%d ", num);
+    }
+    // (num % 2 != 0) && printf("%d ", num);
   }
   return 0;
 }
 
+// if the limits are given in descending order also the sequence prints in ascending format
 int odd_numbers_between_n(int start, int end)
 {
+  if (start > end)
+  {
+    int temp = end;
+    end = start;
+    start = temp;
+  }
   for (int num = start; num <= end; num++)
   {
-    (num % 2 != 0) && printf("%d ", num);
+    if (num % 2)
+    {
+      printf("%d ", num);
+    }
+    // (num % 2 != 0) && printf("%d ", num);
   }
   return 0;
 }
