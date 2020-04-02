@@ -1,19 +1,18 @@
 #include <stdio.h>
 
-int factorial(int num);
+unsigned int factorial(int num);
 int fibonacci(int upto);
 int odd_number_series(int upto);
 int even_number_series(int upto);
-int sum_of_n_numbers(int start, int end);
-int product_of_n_numbers(int start, int end);
-int sum_of_even_numbers_between_n(int start, int end);
+long int sum_of_n_numbers(int start, int end);
+long int product_of_n_numbers(int start, int end);
+long int sum_of_even_numbers_between_n(int start, int end);
 int odd_numbers_in_reverse_order(int from);
 int odd_numbers_between_n(int start, int end);
 int nth_number_between_n(int nth, int start, int end);
 int multiplication(int num, int upto);
 
-// calculating upto 12 numbers only
-int factorial(int num)
+unsigned int factorial(int num)
 {
   if (num == 0)
   {
@@ -23,7 +22,6 @@ int factorial(int num)
   // return (num == 0) ? 1 : (num * factorial(num - 1));
 }
 
-// can calculate upto 47th fibonacci number considering 0 as 1st number
 int fibonacci(int upto)
 {
   int previous_term = 0, current_term = 1, temp;
@@ -70,7 +68,7 @@ int even_number_series(int upto)
   return 0;
 }
 
-int sum_of_n_numbers(int start, int end)
+long int sum_of_n_numbers(int start, int end)
 {
   int sum = 0;
   if (start > end)
@@ -86,7 +84,7 @@ int sum_of_n_numbers(int start, int end)
   return sum;
 }
 
-int product_of_n_numbers(int start, int end)
+long int product_of_n_numbers(int start, int end)
 {
   int product = 1;
   if (start > end)
@@ -102,7 +100,7 @@ int product_of_n_numbers(int start, int end)
   return product;
 }
 
-int sum_of_even_numbers_between_n(int start, int end)
+long int sum_of_even_numbers_between_n(int start, int end)
 {
   int sum = 0;
   if (start > end)
@@ -135,7 +133,6 @@ int odd_numbers_in_reverse_order(int from)
   return 0;
 }
 
-// if the limits are given in descending order also the sequence prints in ascending format
 int odd_numbers_between_n(int start, int end)
 {
   if (start > end)
@@ -155,7 +152,6 @@ int odd_numbers_between_n(int start, int end)
   return 0;
 }
 
-// if the limits are given in descending order also the sequence prints in ascending format
 int nth_number_between_n(int nth, int start, int end)
 {
   if (start > end)
@@ -187,7 +183,7 @@ int main(void)
   printf("Enter a number\n");
   scanf("%d", &num1);
 
-  printf("factorial of %d is %d\n", num1, factorial(num1));
+  printf("factorial of %d is %u\n", num1, factorial(num1));
 
   printf("The fibonacci series upto %d are as follows\n", num1);
   fibonacci(num1);
@@ -207,9 +203,9 @@ int main(void)
 
   printf("Enter two numbers\n");
   scanf("%d %d", &num1, &num2);
-  printf("The sum between the limits %d and %d is %d\n", num1, num2, sum_of_n_numbers(num1, num2));
-  printf("The product between the limits %d and %d is %d\n", num1, num2, product_of_n_numbers(num1, num2));
-  printf("The sum of even numbers between %d and %d is %d\n", num1, num2, sum_of_even_numbers_between_n(num1, num2));
+  printf("The sum between the limits %d and %d is %ld\n", num1, num2, sum_of_n_numbers(num1, num2));
+  printf("The product between the limits %d and %d is %ld\n", num1, num2, product_of_n_numbers(num1, num2));
+  printf("The sum of even numbers between %d and %d is %ld\n", num1, num2, sum_of_even_numbers_between_n(num1, num2));
 
   printf("The odd numbers between %d and %d is as follows\n", num1, num2);
   odd_numbers_between_n(num1, num2);

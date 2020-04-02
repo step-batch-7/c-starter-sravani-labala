@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
-int is_even(int num);
-int is_odd(int num);
+unsigned char is_even(int num);
+unsigned char is_odd(int num);
 long int square(int num);
 long int cube(int num);
 float convert_fahrenheit_to_centigrade(float fahrenheit);
@@ -14,13 +14,13 @@ float compound_interest(long int principle, int time, float rate);
 int gcd(int num1, int num2);
 int lcm(int num1, int num2);
 
-int is_even(int num)
+unsigned char is_even(int num)
 {
   return (num % 2) == 0;
   // return !(num & 1);
 }
 
-int is_odd(int num)
+unsigned char is_odd(int num)
 {
   return !is_even(num);
 }
