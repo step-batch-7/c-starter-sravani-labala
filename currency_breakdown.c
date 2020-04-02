@@ -1,38 +1,23 @@
 #include <stdio.h>
 
-int find_notes(int amount);
-int get_balance(int amount, int currency);
-
-int get_balance(int amount, int currency)
+int print_notes(int amount)
 {
-  int count = amount / currency;
-  if (count)
+  int notes[] = {2000, 500, 200, 100, 50, 10, 5, 1};
+  int count, i;
+  for (i = 0; i < 8; i++)
   {
-    printf("%d x Rs %d\n", count, currency);
+    count = amount / notes[i];
+    count &&printf("%d x Rs %d\n", count, notes[i]);
+    amount = amount % notes[i];
   }
-  // count && printf("%d x Rs %d\n", count, currency);
-  return amount % currency;
-}
-
-int find_notes(int amount)
-{
-  int balance;
-  balance = get_balance(amount, 2000);
-  balance = get_balance(balance, 500);
-  balance = get_balance(balance, 200);
-  balance = get_balance(balance, 100);
-  balance = get_balance(balance, 50);
-  balance = get_balance(balance, 10);
-  balance = get_balance(balance, 5);
-  balance = get_balance(balance, 1);
-  return balance;
+  return 0;
 }
 
 int main(void)
 {
   int amount;
-  printf("Enter amount\n");
+  printf("enter the amount\n");
   scanf("%d", &amount);
-  find_notes(amount);
+  print_notes(amount);
   return 0;
 }
